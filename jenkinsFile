@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("myrepo-agora/hello_image")
+        app = docker.build("madhavikdm/docker_demo")
     }
 
     stage('Test image') {
