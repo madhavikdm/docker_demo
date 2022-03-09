@@ -1,33 +1,40 @@
-node {
-    def app
+ pipeline{
 
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
+	agent {label 'linux'}
 
-        checkout scm
-    }
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('Docker_credentailas')
+	}
 
-    stage('Build image') {
-        /* This builds the actual image */
+	stages {
+	    
+	    stage('gitclone') {
 
-        app = docker.build("madhavikdm/myrepo-agora:mydemo_1")
-    }
+			steps {
+				git 'https://github.com/madhavikdm/docker_demo.git'
+			}
+		}
 
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
-    }
+		stage('Build') {
 
-    stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		*/
-        docker.withRegistry('https://hub.docker.com/repository/docker/madhavikdm/myrepo-agora', 'Docker_credentailas') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-            } 
-                echo "Trying to Push Docker Build to DockerHub"
-    }
+			steps {
+				sh 'docker build -t  madhavikdm/myrepo-agora:new_image .'
+			}
+		}
+
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push madhavikdm/myrepo-agora:new_image'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+
 }
