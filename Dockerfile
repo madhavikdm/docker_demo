@@ -1,6 +1,21 @@
+
 FROM node:14.18.3-alpine
 
-# set maintainer
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+
+
 COPY package*.json ./
-RUN npm start
-CMD ["echo","builing image successfully"]
+
+RUN npm install
+
+COPY . .
+
+
+
+EXPOSE 5000
+
+
+
+CMD [ "npm", "start" ]
