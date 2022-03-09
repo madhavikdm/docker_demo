@@ -1,4 +1,4 @@
-FROM node:16-onbuild
+FROM node:14.18.3-alpine
 
 # set maintainer
 COPY package*.json ./
