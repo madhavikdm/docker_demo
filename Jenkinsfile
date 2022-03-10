@@ -10,7 +10,7 @@
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("mydemo_2")
+        app = docker.build("mydemo_3")
     }
 
     stage('Test image') {
