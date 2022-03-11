@@ -14,7 +14,7 @@ COPY . .
 
 
 
-EXPOSE 5000
+EXPOSE http://localhost:5000/
 
 
 
