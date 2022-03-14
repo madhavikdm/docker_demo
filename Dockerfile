@@ -18,4 +18,4 @@ EXPOSE 5000
 
 
 
-CMD [ "npm","app.js"]
+CMD [ "node","app.js"]
