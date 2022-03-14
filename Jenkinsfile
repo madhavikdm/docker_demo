@@ -30,6 +30,8 @@
 		
             } 
                 echo "Trying to Push Docker Build to DockerHub"
-	    docker run -it -p 5000:3000 mydemo_3
+	   
     }
+	   stage('run image') {
+		    docker run -it -p 5000:3000 mydemo_3
 }
