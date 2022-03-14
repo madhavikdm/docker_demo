@@ -32,6 +32,21 @@
                 echo "Trying to Push Docker Build to DockerHub"
 	   
     }
+	   stage('Run Docker container on Jenkins Agent') {
+             
+            steps 
+			{
+               docker run -d -p 5000:3000 madhavikdm/myrepo-agora
+ 
+            }
+        }
+ stage('Run Docker container on remote hosts') {
+             
+            steps {
+               docker -H https://localhost:5000/ run -d -p 5000:3000 madhavikdm/myrepo-agora
+ 
+            }
+        }
 	  
   }  
 
