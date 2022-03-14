@@ -7,11 +7,11 @@
         checkout scm
     }
 
-    stage('Build image') {
+/*     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("mydemo_3")
-    }
+       app = docker.build("mydemo_3")
+     }
 
     stage('Test image') {
         
@@ -33,4 +33,41 @@
 	   
     }
 	  
-  }
+  }*/
+
+stage('Docker Build and Tag') {
+           steps {
+              
+                sh 'docker build -t myrepo-agora:latest .' 
+                sh 'docker tag myrepo-agora madhavikdm/myrepo-agora:latest'
+                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
+               
+          }
+        }
+     
+  stage('Publish image to Docker Hub') {
+          
+            steps {
+        withDockerRegistry([ credentialsId: "docker", url: "" ]) {
+          sh  'docker push madhavikdm/myrepo-agora:latest'
+        //  sh  'docker push madhavikdm/myrepo-agora:$BUILD_NUMBER' 
+        }
+                  
+          }
+        }
+     
+      stage('Run Docker container on Jenkins Agent') {
+             
+            steps 
+			{
+                sh "docker run -d -p 5000:3000 madhavikdm/myrepo-agora"
+ 
+            }
+        }
+ stage('Run Docker container on remote hosts') {
+             
+            steps {
+                sh "docker -H http://127.0.0.1 run -d -p 5000:3000 madhavikdm/myrepo-agora"
+ 
+            }
+        }
