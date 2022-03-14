@@ -18,4 +18,4 @@ EXPOSE 5000
 
 
 
-CMD [ "node", "start" ,"app.js"]
+CMD [ "node","app.js"]
