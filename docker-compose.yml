@@ -1,0 +1,17 @@
+version: '2'
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - "5000:3000"
+    links:
+      - redis
+
+  redis:
+    build:
+      context: .
+      dockerfile: Dockerfile-redis
+    expose:
+      - "8000"
