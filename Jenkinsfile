@@ -36,14 +36,14 @@
              
             steps 
 			{
-               docker run -d -p 5000:3000 madhavikdm/myrepo-agora
+               docker run -it -p 5000:3000 mydemo_3
  
             }
         }
  stage('Run Docker container on remote hosts') {
              
             steps {
-               docker -H https://localhost:5000/ run -d -p 5000:3000 madhavikdm/myrepo-agora
+               docker -H https://localhost:5000/ run -it -p 5000:3000 mydemo_3
  
             }
         }
