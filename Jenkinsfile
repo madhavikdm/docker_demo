@@ -34,5 +34,5 @@
     }
 	   stage('run image') {
 		    docker run -it -p 5000:3000 mydemo_3
-}
-   }
+  }
+  }
