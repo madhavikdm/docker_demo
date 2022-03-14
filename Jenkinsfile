@@ -27,6 +27,7 @@
         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikdm/myrepo-agora', 'docker') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
+		docker run -it -p 5000:3000 mydemo_3
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
