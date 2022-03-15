@@ -43,7 +43,9 @@
  stage('Run Docker container on remote hosts') {
              
             steps {
-               docker -H https://localhost:5000/ run -it mydemo_3
+               docker -H https://localhost:5000/
+		       docker run -it mydemo_3
+		       
  
             }
         } 
