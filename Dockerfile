@@ -1,4 +1,3 @@
-
 FROM node:14.18.3-alpine
 
 RUN mkdir -p /usr/src/app
