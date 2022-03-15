@@ -36,7 +36,7 @@
              
             steps 
 			{
-              docker run -it -p 5000:3000 mydemo_3
+              docker run mydemo_3
  
             }
         }
