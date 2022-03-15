@@ -32,23 +32,6 @@
                 echo "Trying to Push Docker Build to DockerHub"
 	   
     }
-	/*   stage('Run') {
-             
-            steps 
-			{
-              docker run mydemo_3
- 
-            }
-        }  */
-/* stage('Run Docker container on remote hosts') {
-             
-            steps {
-                docker -H https://localhost:5000/
-		docker run -it mydemo_3
-		       
- 
-            }
-        } */
-	  
+	
   }  
 
