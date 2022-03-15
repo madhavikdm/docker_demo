@@ -32,14 +32,14 @@
                 echo "Trying to Push Docker Build to DockerHub"
 	   
     }
-	   stage('Run') {
+	/*   stage('Run') {
              
             steps 
 			{
               docker run mydemo_3
  
             }
-        }
+        }  */
 /* stage('Run Docker container on remote hosts') {
              
             steps {
