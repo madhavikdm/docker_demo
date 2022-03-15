@@ -32,7 +32,7 @@
                 echo "Trying to Push Docker Build to DockerHub"
 	   
     }
-	   stage('Run Docker container on Jenkins Agent') {
+	   stage('Run') {
              
             steps 
 			{
