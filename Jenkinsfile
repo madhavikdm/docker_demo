@@ -36,7 +36,7 @@
              
             steps 
 			{
-               docker run -it mydemo_3
+              docker run --rm mydemo_3
  
             }
         }
@@ -44,7 +44,7 @@
              
             steps {
                docker -H https://localhost:5000/
-		       docker run -it mydemo_3
+// 		docker run -it mydemo_3
 		       
  
             }
