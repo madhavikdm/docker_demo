@@ -36,19 +36,19 @@
              
             steps 
 			{
-              docker run --rm mydemo_3
+              docker run -it -p 5000:3000 mydemo_3
  
             }
         }
- stage('Run Docker container on remote hosts') {
+/* stage('Run Docker container on remote hosts') {
              
             steps {
-//                docker -H https://localhost:5000/
-// 		docker run -it mydemo_3
+                docker -H https://localhost:5000/
+		docker run -it mydemo_3
 		       
  
             }
-        } 
+        } */
 	  
   }  
 
