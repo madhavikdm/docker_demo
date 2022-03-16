@@ -10,7 +10,7 @@
 
     stage('Build image') {
         /* This builds the actual image */
-      registry = "https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora" 
+      registry = "madhavikadam/myrepo-agora" 
        app = docker.build  registry + ":$BUILD_NUMBER"
 	    
      }
