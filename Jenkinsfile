@@ -11,7 +11,7 @@
     stage('Build image') {
         /* This builds the actual image */
 
-       app = docker.build("madhavikadam/myrepo-agora")
+       app = docker.build("madhavikadam/myrepo-agora:my_demo1")
 	    
      }
 
