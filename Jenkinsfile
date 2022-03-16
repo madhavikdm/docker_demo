@@ -1,4 +1,4 @@
-   node {      
+  node {      
 
     def app
 
@@ -24,8 +24,7 @@
 
         echo '### Started Building the docker image..'
 
-        // registry = "madhavikadam/myrepo-agora"
-
+       
         app = docker.build ("mydemo_1")
 
         echo '### Docker build successful.'
