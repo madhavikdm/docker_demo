@@ -10,8 +10,8 @@
 
     stage('Build image') {
         /* This builds the actual image */
-      registry = "madhavikadam/myrepo-agora" 
-       app = docker.build  registry + ":$BUILD_NUMBER"
+//       registry = "madhavikadam/myrepo-agora" 
+       app = docker.build ("madhavikadam/myrepo-agora")
 	    
      }
 
@@ -29,7 +29,7 @@
 		*/
         docker.withRegistry('', 'docker') {
 //             app.push("${env.BUILD_NUMBER}")
-            app.push()
+            app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
 	   
