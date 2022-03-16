@@ -55,7 +55,7 @@
 
         */
 
-        docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'madhavikadam') {
+        docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
             // app.push("${env.BUILD_NUMBER}")
 
