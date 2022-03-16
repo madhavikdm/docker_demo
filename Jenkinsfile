@@ -10,8 +10,8 @@
 
     stage('Build image') {
         /* This builds the actual image */
-
-       app = docker.build("madhavikadam/myrepo-agora:my_demo1")
+      registry = "https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora" 
+       app = docker.build  registry + ":$BUILD_NUMBER"
 	    
      }
 
@@ -27,7 +27,7 @@
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker') {
+        docker.withRegistry('', 'docker') {
 //             app.push("${env.BUILD_NUMBER}")
             app.push()
             } 
