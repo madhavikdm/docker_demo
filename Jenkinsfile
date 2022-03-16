@@ -11,7 +11,7 @@
     stage('Build image') {
         /* This builds the actual image */
 
-       app = docker.build("mydemo_3")
+       app = docker.build("madhavikadam/myrepo-agora")
 	    
      }
 
@@ -29,7 +29,7 @@
 		*/
         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("my_demo1")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
 	   
