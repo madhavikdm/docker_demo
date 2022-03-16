@@ -1,4 +1,5 @@
    node {
+	   docker { image 'node:14.18.3-alpine' } 
     def app
 
     stage('Clone repository') {
