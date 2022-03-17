@@ -25,7 +25,7 @@
         echo '### Started Building the docker image..'
 
        
-        app = docker.build("mydemo_1")  .
+        app = docker.build('mydemo_1')  .
 
         echo '### Docker build successful.'
 
