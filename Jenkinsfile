@@ -66,5 +66,12 @@
         echo '### Docker image pushed successfully.'  
 
     }  
+    stage('Docker Run') {
+     steps{
+         script {
+            dockerImage.run("-p 5000:3000 --rm --name mydemo_1")
+         }
+      }
+    }
 
 }
