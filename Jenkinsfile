@@ -1,10 +1,7 @@
   node {      
 
     def app
-
-
-
-    stage('Clone repository') {
+       stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
 
@@ -15,36 +12,25 @@
         echo '### Repository cloned successfully'
 
     }
-
-
-
-    stage('Build image') {
+stage('Build image') {
 
         /* This builds the actual image */
 
-        echo '### Started Building the docker image..'
-
-       
+        echo '### Started Building the docker image..'  
         app = docker.build('mydemo_1')  .
 
         echo '### Docker build successful.'
 
      }
 
-
-
     stage('Test image') {        
 
         app.inside {
-
-            echo "Tests passed"    
+           echo 'Tests passed'    
 
         }
 
     }
-
-
-
     stage('Push image') {
 
         echo '### Started pushing the docker image..'
@@ -57,9 +43,9 @@
 
         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
-            // app.push("${env.BUILD_NUMBER}")
+            // app.push("${env.BUILD_NUMBER}")  .
 
-            app.push("latest")
+            app.push('latest')   .
 
         }
 
@@ -69,7 +55,7 @@
     stage('Docker Run') {
      steps{
          
-            app.run('-p 5000:3000 mydemo_1')
+            app.run('-p 5000:3000 mydemo_1')  .
          
       }
     }
