@@ -55,7 +55,7 @@ stage('Build image') {
     stage('Docker Run') {
      steps{
          
-            app.run('-p 5000:3000 mydemo_1')  .
+            app.run(['-p 5000:3000 mydemo_1'])  
          
       }
     }
