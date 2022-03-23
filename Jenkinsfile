@@ -44,8 +44,7 @@ stage('Build image') {
 //         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
    docker.withRegistry('http://docker.agorajenkins.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
-            // app.push("${env.BUILD_NUMBER}")  .
-
+             app.push("${env.BUILD_NUMBER}")  .
             app.push('latest')   
 
         }
@@ -55,8 +54,9 @@ stage('Build image') {
     }  
     stage('Docker Run') {
      steps{
+       docker.image('mydemo_1:latest').withRun('-p 5000:3000')
          
-            app.run(['-p 5000:3000 mydemo_1'])  
+//             app.run(['-p 5000:3000 mydemo_1'])  
          
       }
     }
