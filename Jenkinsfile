@@ -17,7 +17,7 @@ stage('Build image') {
         /* This builds the actual image */
 
         echo '### Started Building the docker image..'  
-        app = docker.build('mydemo_2')  .
+        app = docker.build('jenkinspipeline')  .
 
         echo '### Docker build successful.'
 
@@ -46,7 +46,7 @@ stage('Build image') {
    docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:awscredentials') {
 //              app.push("${env.BUILD_NUMBER}")  .
 //             app.push('latest')   
- docker.image('mydemo_2').push('latest')
+ docker.image('jenkinspipeline').push('latest')
         }
 
         echo '### Docker image pushed successfully.'  
@@ -54,9 +54,9 @@ stage('Build image') {
     }  
     stage('Docker Run') {
      steps{
-       docker.image('mydemo_2').withRun('-p 5000:3000')
+       docker.image('jenkinspipeline').withRun('-p 5000:3000')
          
-//             app.run(['-p 5000:3000 mydemo_2'])  
+//             app.run(['-p 5000:3000 jenkinspipeline'])  
          
       }
     }
