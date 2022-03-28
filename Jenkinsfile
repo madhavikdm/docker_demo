@@ -32,5 +32,16 @@
         }
 
     }
+   stage('Push image') {
+
+        echo '### Started pushing the docker image..'
+     docker.withRegistry('http://180522143609.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:awscredentials') {
+            app.push("${env.BUILD_NUMBER}")  .
+           app.push('latest')   
+       }
+
+        echo '### Docker image pushed successfully.'  
+
+    }  
 
  }
