@@ -12,4 +12,16 @@
         echo '### Repository cloned successfully'
 
     }
+  stage('Build image') {
+
+        /* This builds the actual image */
+
+        echo '### Started Building the docker image..'  
+       
+   app = docker.build('jenkinspipeline')  .
+
+        echo '### Docker build successful.'
+
+     }
+
  }
