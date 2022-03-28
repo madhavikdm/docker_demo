@@ -17,7 +17,7 @@ stage('Build image') {
         /* This builds the actual image */
 
         echo '### Started Building the docker image..'  
-        app = docker.build('jenkinspipeline','-f ${dockerfile} ./dockerfiles')  .
+        app = docker.build("jenkinspipeline","-f ${dockerfile} ./dockerfiles")  .
 
         echo '### Docker build successful.'
 
