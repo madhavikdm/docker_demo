@@ -43,7 +43,7 @@ stage('Build image') {
 
 //         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
-   docker.withRegistry('http://docker.agorajenkins.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
+   docker.withRegistry('https://us-east-1.console.aws.amazon.com/ecr/repositories/public/180522143609/jenkinspipeline?region=us-east-1', '	aws credentials') {
              app.push("${env.BUILD_NUMBER}")  .
             app.push('latest')   
 
