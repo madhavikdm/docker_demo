@@ -12,3 +12,4 @@
         echo '### Repository cloned successfully'
 
     }
+ }
