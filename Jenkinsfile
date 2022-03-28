@@ -17,7 +17,7 @@ stage('Build image') {
         /* This builds the actual image */
 
         echo '### Started Building the docker image..'  
-        app = docker.build('jenkinspipeline')  .
+        app = docker.build('jenkinspipeline','-f ${dockerfile} ./dockerfiles')  .
 
         echo '### Docker build successful.'
 
@@ -43,7 +43,7 @@ stage('Build image') {
 
 //         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora','docker') {
 
-   docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:awscredentials') {
+   docker.withRegistry('http://180522143609.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:awscredentials') {
 //              app.push("${env.BUILD_NUMBER}")  .
 //             app.push('latest')   
  docker.image('jenkinspipeline').push('latest')
