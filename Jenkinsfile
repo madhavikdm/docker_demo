@@ -22,12 +22,12 @@
         }
         
     stage('Clone repository') {
-
+checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'madhavikdm', url: 'https://github.com/madhavikdm/docker_demo.git']]]) 
         /* Cloning the Repository to our Workspace */
 
 //         echo '### Started cloning the repository..'
 
-        checkout scm
+//         checkout scm
 
 //         echo '### Repository cloned successfully'
     }
