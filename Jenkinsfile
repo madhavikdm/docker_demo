@@ -58,7 +58,7 @@ node {
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 //         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s8h2g7r9
 
-        docker tag app public.ecr.aws/s8h2g7r9/jenkinspipeline:latest
+        docker tag mydemo_1 public.ecr.aws/s8h2g7r9/jenkinspipeline:latest
         docker push public.ecr.aws/s8h2g7r9/jenkinspipeline:latest
       
         
