@@ -24,9 +24,7 @@ node {
 
         echo '### Started Building the docker image..'
 
-        // registry = "madhavikadam/myrepo-agora"
-
-        app = docker.build ("mydemo_1")
+             app = docker.build ("mydemo_1")
 
         echo '### Docker build successful.'
 
@@ -56,7 +54,7 @@ node {
 
        
       
-       docker.image(app).push('latest')
+       docker.image('mydemo_1').push('latest')
 //      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'madhavikadam') {
 
             // app.push("${env.BUILD_NUMBER}")
