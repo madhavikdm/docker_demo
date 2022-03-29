@@ -55,7 +55,7 @@ node {
        
       
 //        docker.image('mydemo_1').push('latest')
-//      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'madhavikadam') {
+     docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'madhavikadam') {
 
              app.push("${env.BUILD_NUMBER}")
 
