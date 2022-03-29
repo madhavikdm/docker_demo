@@ -42,7 +42,7 @@ def ecr_credentials = "madhavi"
    
 
 
-    docker.withRegistry(aws_account + "${jenkispipeline}", "ecr:us-east-1:${ecr_credentials}") {
+    docker.withRegistry(aws_account + "${/s8h2g7r9/jenkinspipeline}", "ecr:us-east-1:${ecr_credentials}") {
         docker.image(app).push()
 //            app.push()   
        }
