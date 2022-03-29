@@ -35,7 +35,7 @@
    stage('Push image') {
 
         echo '### Started pushing the docker image..'
-     docker.withRegistry('https://us-east-1.console.aws.amazon.com/ecr/repositories?region=us-east-1','awscredentials') {
+     docker.withRegistry('http://180522143609.dkr.ecr.us-east-1.amazonaws.com/public.ecr.aws/s8h2g7r9/jenkinspipeline','awscredentials') {
 //             app.push("${env.BUILD_NUMBER}")  .
            app.push()   
        }
