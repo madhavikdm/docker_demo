@@ -34,11 +34,11 @@ node {
 
 
 
-   stage('Test image') {        
+/*   stage('Test image') {        
         app.inside {
         echo "Tests passed"    
         }
-    }
+    }  */
 
 
 
