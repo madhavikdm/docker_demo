@@ -55,7 +55,8 @@ node {
             You would need to first register with DockerHub before you can push images to your account
 
         */
-        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s8h2g7r9
+         docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
+//         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s8h2g7r9
 
         docker tag app public.ecr.aws/s8h2g7r9/jenkinspipeline:latest
         docker push public.ecr.aws/s8h2g7r9/jenkinspipeline:latest
@@ -73,6 +74,6 @@ node {
 
         echo '### Docker image pushed successfully.'  
 
-    
+    }
 
 }
