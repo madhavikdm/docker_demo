@@ -1,6 +1,8 @@
  node {      
 
     def app
+   def aws_account = "https://180522143609.dkr.ecr.us-east-1.amazonaws.com"
+def ecr_credentials = "madhavi"
        stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -35,9 +37,14 @@
    stage('Push image') {
 
         echo '### Started pushing the docker image..'
-     docker.withRegistry('http://180522143609.dkr.ecr.us-east-1.amazonaws.com/public.ecr.aws/s8h2g7r9/jenkinspipeline','awscredentials') {
+//      docker.withRegistry('http://180522143609.dkr.ecr.us-east-1.amazonaws.com/public.ecr.aws/s8h2g7r9/jenkinspipeline','awscredentials') {
 //             app.push("${env.BUILD_NUMBER}")  .
-           app.push()   
+   
+
+
+    docker.withRegistry(aws_account + "${jenkispipeline}", "ecr:us-east-1:${ecr_credentials}") {
+        docker.image(app).push()
+//            app.push()   
        }
 
         echo '### Docker image pushed successfully.'  
