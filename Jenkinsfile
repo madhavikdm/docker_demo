@@ -20,6 +20,7 @@
                  
             }
         }
+    }
         
     stage('Clone repository') {
 checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'madhavikdm', url: 'https://github.com/madhavikdm/docker_demo.git']]]) 
@@ -50,7 +51,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigur
          }
         }
       }
-    }
+    
 }
     
 
