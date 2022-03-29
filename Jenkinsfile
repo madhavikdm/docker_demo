@@ -73,6 +73,6 @@ node {
 
         echo '### Docker image pushed successfully.'  
 
-    }  
+    
 
 }
