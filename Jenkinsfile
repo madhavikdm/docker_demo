@@ -53,17 +53,17 @@ node {
             You would need to first register with DockerHub before you can push images to your account
 
         */
-         docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
+//          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-  app=docker.build('jenkinspipeline')
-app.push ('latest')            
+//   app=docker.build('jenkinspipeline')
+// app.push ('latest')            
 //        docker.image('mydemo_1').push('latest')
 
-   //      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
+         docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
-   //          app.push("${env.BUILD_NUMBER}")
+             app.push("${env.BUILD_NUMBER}")
 
-     //       app.push("latest")
+            app.push("latest")
 
        }
 
