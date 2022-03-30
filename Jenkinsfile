@@ -55,7 +55,7 @@ node {
         */
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-  app=docker.build('s8h2g7r9/jenkinspipeline')
+  app=docker.build('jenkinspipeline')
 app.push ('latest')            
 //        docker.image('mydemo_1').push('latest')
 
