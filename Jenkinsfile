@@ -44,20 +44,20 @@ node {
 
 
 
-//    stage('Push image') {
+    stage('Push image') {
 
- //       echo '### Started pushing the docker image..'
+      echo '### Started pushing the docker image..'
 
         /*
 
             You would need to first register with DockerHub before you can push images to your account
 
         */
-//          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com/s8h2g7r9/jenkinspipeline:latest', 'ecr:us-east-1:madhavi') {
-//        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s8h2g7r9
+         docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com/s8h2g7r9/jenkinspipeline:latest', 'ecr:us-east-1:madhavi') {
+
 
             
-//        docker.image('mydemo_1').push('latest')
+       docker.image('mydemo_1').push('latest')
 
    //      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
 
@@ -65,11 +65,11 @@ node {
 
      //       app.push("latest")
 
-  //      }
+       }
 
- //       echo '### Docker image pushed successfully.'  
+        echo '### Docker image pushed successfully.'  
 
-//    }
+    }
      stage('Docker Run') {
      steps{
          script {
