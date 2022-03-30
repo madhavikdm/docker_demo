@@ -21,10 +21,11 @@ node {
         /* This builds the actual image */
 
         echo '### Started Building the docker image..'
-
-   
-
+     
         app = docker.build ("mydemo_1")
+
+   app.image('mydemo_1').withRun('-p 5000:3000')
+
 
         echo '### Docker build successful.'
 
