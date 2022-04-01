@@ -71,12 +71,12 @@ node {
         echo '### Docker image pushed successfully.'  
 
     }
-     stage('Docker Run') {
-     steps{
-         script {
-            app.run("-p 5000:3000 mydemo_1")
-         }
-      }
-    }
+//      stage('Docker Run') {
+//      steps{
+//          script {
+//             app.run("-p 5000:3000 mydemo_1")
+//          }
+//       }
+//     }
 
 }
