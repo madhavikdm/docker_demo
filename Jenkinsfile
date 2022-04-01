@@ -64,7 +64,7 @@ node {
 //    app=docker.build('myrepo-agora')
 
 //               app.push("${env.BUILD_NUMBER}")
-             app.push('latest')
+//              app.push('latest')
 //         }
 
         echo '### Docker image pushed successfully.'  
