@@ -44,7 +44,7 @@ node {
 
 
 
-    stage('Push image') {
+    stage('Push image to aws ecr') {
 
       echo '### Started pushing the docker image..'
 
@@ -56,18 +56,22 @@ node {
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
    app=docker.build('jenkinspipeline')
-  app.push ('latest')        
-         }      
-//              docker.image('mydemo_1').push('latest')
+  app.push ('latest') 
+                     echo '### Docker image pushed on aws ecr successfully.'  
 
-           docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam', 'docker') {
+         }  
+    }
+
+ stage('push image on docker hub') {
+     echo '### Started pushing the docker image..'
+           docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
     app=docker.build('myrepo-agora')
 
 //                app.push("${env.BUILD_NUMBER}")
               app.push('latest')
       }
 
-        echo '### Docker image pushed successfully.'  
+        echo '### Docker image pushed on docker hub  successfully.'  
 
     }
       stage('Docker Run') {
