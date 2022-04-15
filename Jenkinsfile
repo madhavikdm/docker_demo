@@ -60,22 +60,22 @@ node {
          }      
 //              docker.image('mydemo_1').push('latest')
 
-//           docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam', 'docker') {
-//    app=docker.build('myrepo-agora')
+           docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam', 'docker') {
+    app=docker.build('myrepo-agora')
 
-//               app.push("${env.BUILD_NUMBER}")
-//              app.push('latest')
+//                app.push("${env.BUILD_NUMBER}")
+              app.push('latest')
 //         }
 
         echo '### Docker image pushed successfully.'  
 
     }
-//      stage('Docker Run') {
-//      steps{
-//          script {
-//             app.run("-p 5000:3000 mydemo_1")
-//          }
-//       }
-//     }
+      stage('Docker Run') {
+     steps{
+         script {
+            app.run("-p 5000:3000 mydemo_1")
+         }
+       }
+     }
 
 }
