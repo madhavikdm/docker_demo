@@ -22,7 +22,7 @@ node {
 
         echo '### Started Building the docker image..'
      
-        app = docker.build ("mydemo_6")
+        app = docker.build ("innerbuild_1")
 //    app.image('mydemo_1').withRun('-p 5000:3000')
 
 
