@@ -77,7 +77,7 @@ node {
       stage('Docker Run') {
      steps{
          script {
-            app.run("-p 5000:3000 mydemo_1")
+            app.run("-p 5000:3000 innerbuild_1")
          }
        }
      }
