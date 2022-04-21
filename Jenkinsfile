@@ -64,7 +64,7 @@ node {
 
   stage('push image on docker hub') {
      echo '### Started pushing the docker image..'
-      def Image = docker.build "https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora" + ":$BUILD_NUMBER"
+      def Image = docker.build "madhavikadam/myrepo-agora" + ":$BUILD_NUMBER"
             docker.withRegistry(Image , 'docker') {
 //      app=docker.build('myrepo-agora')
 
