@@ -62,19 +62,19 @@ node {
          }  
     }
 
-  stage('push image on docker hub') {
-     echo '### Started pushing the docker image..'
-      def Image = docker.build "madhavikadam/myrepo-agora" + ":latest"
-            docker.withRegistry(Image , docker) {
+//   stage('push image on docker hub') {
+//      echo '### Started pushing the docker image..'
+//       def Image = docker.build "madhavikadam/myrepo-agora" + ":latest"
+//             docker.withRegistry(Image , docker) {
 //      app=docker.build('myrepo-agora')
 
 //                 app.push("${env.BUILD_NUMBER}")
-                Image.push('latest')
-       }
+//                 Image.push('latest')
+//        }
 
-         echo '### Docker image pushed on docker hub  successfully.'  
+//          echo '### Docker image pushed on docker hub  successfully.'  
 
-     }
+//      }
 //       stage('Docker Run') {
 //      steps{
 //          script {
