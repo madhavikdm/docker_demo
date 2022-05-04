@@ -69,7 +69,7 @@ node {
 //             app = docker.build registry
                  docker.withRegistry('', 'docker') {
                 app.push("${env.BUILD_NUMBER}")
-                 app.push('latest')
+//                  app.push('latest')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
