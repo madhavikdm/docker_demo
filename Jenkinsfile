@@ -1,6 +1,7 @@
 node {      
 
-    def app
+     def app = ''
+    def registry= "madhavikadam/agora_1"
 
     stage('Clone repository') {
 
@@ -62,25 +63,17 @@ node {
          }  
     }
 
-//   stage('push image on docker hub') {
-//      echo '### Started pushing the docker image..'
-//       def Image = docker.build "madhavikadam/myrepo-agora" + ":latest"
-//             docker.withRegistry(Image , docker) {
-//      app=docker.build('myrepo-agora')
+   stage('push image on docker hub') {
+      echo '### Started pushing the docker image..'
+     
+            app = docker.build registry
+                 docker.withRegistry('', 'docker') {
+                app.push("${env.BUILD_NUMBER}")
+                 app.push('latest')
+        }
 
-//                 app.push("${env.BUILD_NUMBER}")
-//                 Image.push('latest')
-//        }
+         echo '### Docker image pushed on docker hub  successfully.'  
 
-//          echo '### Docker image pushed on docker hub  successfully.'  
-
-//      }
-//       stage('Docker Run') {
-//      steps{
-//          script {
-//             app.run("-p 5000:3000 innerbuild_1")
-//          }
-//        }
-//      }
-
+      }
+       
 }
