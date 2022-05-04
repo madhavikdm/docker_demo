@@ -23,7 +23,7 @@ node {
 
         echo '### Started Building the docker image..'
      
-        app = docker.build ("innerbuild_1")
+        app = docker.build ("madhavikadam/agora_1")
 //    app.image('mydemo_1').withRun('-p 5000:3000')
 
 
@@ -66,7 +66,7 @@ node {
    stage('push image on docker hub') {
       echo '### Started pushing the docker image..'
      
-            app = docker.build registry
+//             app = docker.build registry
                  docker.withRegistry('', 'docker') {
                 app.push("${env.BUILD_NUMBER}")
                  app.push('latest')
