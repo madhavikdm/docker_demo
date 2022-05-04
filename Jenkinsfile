@@ -1,7 +1,7 @@
 node {      
 
      def app = ''
-    def registry= "madhavikadam/agora_1"
+//     def registry= "madhavikadam/agora_1"
 
     stage('Clone repository') {
 
@@ -14,9 +14,6 @@ node {
         echo '### Repository cloned successfully'
 
     }
-
-
-
     stage('Build image') {
 
         /* This builds the actual image */
@@ -30,9 +27,7 @@ node {
         echo '### Docker build successful.'
 
      }
-
-
-
+     
     stage('Test image') {        
 
         app.inside {
@@ -43,29 +38,24 @@ node {
 
      }
 
-
-
     stage('Push image to aws ecr') {
  def test
       echo '### Started pushing the docker image..'
 
-        /*
-
-            You would need to first register with DockerHub before you can push images to your account
-
-        */
+        /* You would need to first create aws ecr before you can push images to your account */
+         
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-   test=docker.build('jenkinspipeline')
-  test.push ('latest') 
-                     echo '### Docker image pushed on aws ecr successfully.'  
+              test=docker.build('jenkinspipeline')
+                test.push ('latest') 
+         echo '### Docker image pushed on aws ecr successfully.'  
 
          }  
     }
-
+     
    stage('push image on docker hub') {
       echo '### Started pushing the docker image..'
-     
+      /* You would need to first register with DockerHub before you can push images to your account */
 //             app = docker.build registry
                  docker.withRegistry('', 'docker') {
                 app.push("${env.BUILD_NUMBER}")
