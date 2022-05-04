@@ -46,7 +46,7 @@ node {
 
 
     stage('Push image to aws ecr') {
-
+ def test
       echo '### Started pushing the docker image..'
 
         /*
@@ -56,8 +56,8 @@ node {
         */
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-   app=docker.build('jenkinspipeline')
-  app.push ('latest') 
+   test=docker.build('jenkinspipeline')
+  test.push ('latest') 
                      echo '### Docker image pushed on aws ecr successfully.'  
 
          }  
