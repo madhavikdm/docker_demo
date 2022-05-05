@@ -39,15 +39,15 @@ node {
      }
 
     stage('Push image to aws ecr') {
- def test
+//  def test
       echo '### Started pushing the docker image..'
 
         /* You would need to first create aws ecr before you can push images to your account */
          
          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-              test=docker.build('jenkinspipeline')
-                test.push ('latest') 
+//               test=docker.build('jenkinspipeline')
+                app.push ('') 
          echo '### Docker image pushed on aws ecr successfully.'  
 
          }  
