@@ -55,9 +55,10 @@ node {
      
    stage('push image on docker hub') {
         def registry ="madhavikadam/jump-api"
+        def test=''
       echo '### Started pushing the docker image..'
       /* You would need to first register with DockerHub before you can push images to your account */
-        def test = docker.build registry
+         test = docker.build registry
                  docker.withRegistry('', 'Docker_credentials') {
                 test.push("${env.BUILD_NUMBER}")
 //                  app.push('latest')
