@@ -59,7 +59,7 @@ node {
       echo '### Started pushing the docker image..'
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
-                 docker.withRegistry('', 'Docker_credentials') {
+                 docker.withRegistry('', 'Docker') {
                 test.push("${env.BUILD_NUMBER}")
 //                  app.push('latest')
         }
