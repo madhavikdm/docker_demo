@@ -54,13 +54,13 @@ node {
     }
      
    stage('push image on docker hub') {
-//         def registry ="agoraservices/jump-api"
-        def registry ="madhavikadam/jump-api"
+       def registry ="agoraservices/jump-api"
+//         def registry ="madhavikadam/jump-api"
         def test=''
       echo '### Started pushing the docker image..'
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
-                 docker.withRegistry('', 'docker') {
+                 docker.withRegistry('', 'docker1') {
                 test.push("${env.BUILD_NUMBER}")
 //                  app.push('latest')
         }
