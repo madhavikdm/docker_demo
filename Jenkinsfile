@@ -1,6 +1,6 @@
 node {      
 
-     def app = ''
+     def app 
 //     def registry= "madhavikadam/agora_1"
 
     stage('Clone repository') {
@@ -39,7 +39,7 @@ node {
      }
 
     stage('Push image to aws ecr') {
-//  def test
+
       echo '### Started pushing the docker image..'
 
         /* You would need to first create aws ecr before you can push images to your account */
@@ -58,7 +58,7 @@ node {
       echo '### Started pushing the docker image..'
       /* You would need to first register with DockerHub before you can push images to your account */
         def test = docker.build registry
-                 docker.withRegistry('', 'docker') {
+                 docker.withRegistry('', 'Docker_credentials') {
                 test.push("${env.BUILD_NUMBER}")
 //                  app.push('latest')
         }
