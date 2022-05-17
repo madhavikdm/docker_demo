@@ -1,5 +1,5 @@
 node {      
-
+     options { timestapms () }
      def app 
 //   def timestamp=$(date +%Y%m%d%H%M%S)  
   
@@ -68,9 +68,9 @@ node {
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
 //                       def tag=$test:$timestamp
-//                 tag.push('')
-                      test.push("$BUILD_TIMESTAMP")
-//                  app.push('latest')
+//                 test.push('')
+//                       test.push("$BUILD_TIMESTAMP")
+//                  test.push('latest')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
