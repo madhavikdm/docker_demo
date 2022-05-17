@@ -57,11 +57,6 @@ node {
      
    stage('push image on docker hub') {
          
-   options() { 
-        timestapms()
-   }
-       
-
        def registry ="agoraservices/jump-api"
 //         def registry ="madhavikadam/jump-api"
         def test=''
@@ -71,7 +66,7 @@ node {
                  docker.withRegistry('', 'docker1') {
 //                       def tag=$test:$timestamps
 //                 test.push('')
-//                       test.push("$BUILD_TIMESTAMP")
+                       test.push("$BUILD_TIMESTAMP")
 //                  test.push('latest')
         }
 
