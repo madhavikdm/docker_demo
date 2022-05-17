@@ -64,9 +64,9 @@ node {
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
-//                       def tag=$test:$timestamps
+//               def tag=$test:$timestamps
 //                 test.tag('BULD_TIMESTAMP')
-                        test.tag("$BUILD_TIMESTAMP")
+                        test.tag(date)
 //                      test.push("${BUILD_TIMESTAMP}")
                    test.push('')
         }
