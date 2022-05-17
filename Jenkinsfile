@@ -66,9 +66,12 @@ node {
                  docker.withRegistry('', 'docker1') {
 //               def tag=$test:$timestamps
 //                 test.tag('BULD_TIMESTAMP')
-                        test.tag(date)
+//                         test.tag(date)
+                    def timestamp = $(date + %Y%m%d%H%M%S)  
+  
+                      def tag=$test:$timestamp
 //                      test.push("${BUILD_TIMESTAMP}")
-                   test.push('')
+                   tag.push('')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
