@@ -1,7 +1,7 @@
 node {      
 
      def app 
-  def timestamp=$(date +%Y%m%d%H%M%S)  
+  def timestamp=$(date + %Y%m%d%H%M%S)  
   
 def tag=$app:$timestamp
 
@@ -56,7 +56,7 @@ def tag=$app:$timestamp
     }
      
    stage('push image on docker hub') {
-         def timestamp=$(date + %Y%m%d%H%M%S)  
+          
   
        
 
