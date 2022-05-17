@@ -3,7 +3,8 @@ FROM node:14.18.3-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE
 
 COPY package*.json ./
 
