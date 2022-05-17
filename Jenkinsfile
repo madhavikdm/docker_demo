@@ -1,5 +1,5 @@
 node {      
-    
+    options { timestamp () }
      def app 
 //   def timestamp=$(date +%Y%m%d%H%M%S)  
   
