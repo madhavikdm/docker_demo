@@ -1,5 +1,5 @@
 node {      
-     options { timestapms () }
+    
      def app 
 //   def timestamp=$(date +%Y%m%d%H%M%S)  
   
@@ -57,7 +57,9 @@ node {
      
    stage('push image on docker hub') {
          
-  
+   options() { 
+        timestapms()
+   }
        
 
        def registry ="agoraservices/jump-api"
@@ -67,7 +69,7 @@ node {
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
-//                       def tag=$test:$timestamp
+//                       def tag=$test:$timestamps
 //                 test.push('')
 //                       test.push("$BUILD_TIMESTAMP")
 //                  test.push('latest')
