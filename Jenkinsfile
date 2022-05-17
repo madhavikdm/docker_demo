@@ -68,7 +68,7 @@ node {
 //                 test.push('')
 //                        test.push("$BUILD_TIMESTAMP")
 //                      test.push("${BUILD_TIMESTAMP}")
-                   test.push('${ + timestamp }')
+                   test.push('${ .Created }')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
