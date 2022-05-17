@@ -65,10 +65,10 @@ node {
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
 //                       def tag=$test:$timestamps
-//                 test.push('')
-//                        test.push("$BUILD_TIMESTAMP")
+//                 test.tag('BULD_TIMESTAMP')
+                        test.tag("$BUILD_TIMESTAMP")
 //                      test.push("${BUILD_TIMESTAMP}")
-                   test.push('${ .Created }')
+                   test.push('')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
