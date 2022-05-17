@@ -1,7 +1,9 @@
 node {      
 
      def app 
-//     def registry= "madhavikadam/agora_1"
+  def timestamp=$(date +%Y%m%d%H%M%S)  
+  
+def tag=$app:$timestamp
 
     stage('Clone repository') {
 
@@ -54,6 +56,10 @@ node {
     }
      
    stage('push image on docker hub') {
+         def timestamp=$(date +%Y%m%d%H%M%S)  
+  
+       
+
        def registry ="agoraservices/jump-api"
 //         def registry ="madhavikadam/jump-api"
         def test=''
@@ -61,7 +67,8 @@ node {
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
-                test.push("${env.BUILD_NUMBER}")
+                      def tag=$test:$timestamp
+                tag.push('')
 //                  app.push('latest')
         }
 
