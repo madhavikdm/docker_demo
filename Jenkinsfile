@@ -1,7 +1,7 @@
 node {      
   
      def app 
-//   def timestamp=$(date +%Y%m%d%H%M%S)  
+   def timestamp = $(date + %Y%m%d%H%M%S)  
   
 // def tag=$app:$timestamp
 
@@ -68,7 +68,7 @@ node {
 //                 test.push('')
 //                        test.push("$BUILD_TIMESTAMP")
 //                      test.push("${BUILD_TIMESTAMP}")
-                   test.push('${date + %Y%m%d%H%M%S}')
+                   test.push('${ + timestamp }')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
