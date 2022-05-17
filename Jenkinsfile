@@ -69,7 +69,7 @@ node {
                  docker.withRegistry('', 'docker1') {
 //                       def tag=$test:$timestamp
 //                 tag.push('')
-                      test.push("${env.BUILD_TIMESTAMP}")
+                      test.push("${BUILD_TIMESTAMP}")
 //                  app.push('latest')
         }
 
