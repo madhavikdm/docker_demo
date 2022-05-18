@@ -65,7 +65,7 @@ node {
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
 //               def tag=$test:$timestamps
-//                 test.tag('BULD_TIMESTAMP')
+//                 test.tag('BUILD_TIMESTAMP')
 //                         test.tag(date)
 //                     def time = $(datetime.timestamp)  
   
