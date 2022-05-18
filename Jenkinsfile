@@ -67,11 +67,11 @@ node {
 //               def tag=$test:$timestamps
 //                 test.tag('BULD_TIMESTAMP')
 //                         test.tag(date)
-                    def time = $(datetime.timestamp)  
+//                     def time = $(datetime.timestamp)  
   
-                      def tag=$test + $time
-//                      test.push("${BUILD_TIMESTAMP}")
-                   tag.push('')
+//                       def tag=$test + $time
+                     test.push (:"${BUILD_TIMESTAMP}")
+//                    tag.push('')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
