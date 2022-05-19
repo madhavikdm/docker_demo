@@ -9,7 +9,7 @@ RUN npm install
 
 COPY ./dockerentrypoint.sh /
 
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /dockerentrypoint.sh
 
 
 COPY . .
