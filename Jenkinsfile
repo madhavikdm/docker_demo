@@ -70,7 +70,7 @@ node {
 //                     def time = $(datetime.timestamp)  
   
 //                       def tag=$test + $time
-                     test.push("${BUILD_DATE_FORMATTED, "yyyy-MM-dd"}")
+                     test.push('${BUILD_DATE_FORMATTED, "yyyy-MM-dd"}')
 //                    tag.push('')
         }
 
