@@ -7,6 +7,10 @@ COPY package*.json ./
 
 RUN npm install
 
+COPY ./dockerentrypoint.sh /
+
+RUN chmod +x /docker-entrypoint.sh
+
 
 COPY . .
 
