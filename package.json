@@ -13,12 +13,7 @@
     "repository": {
       "type": "git",
       "url": "https://github.com/madhavikdm/docker_demo"
-    },
-    {
-    
-echo Image built: $(cat /build-date.txt)
-exec "$@"
-}
+    }
     "keywords": [
       "node",
       "docker",
