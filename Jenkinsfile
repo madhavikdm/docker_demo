@@ -1,10 +1,10 @@
 node {      
   
      def app 
-    def timestamp = $(date +%YY%m%d%H%M%S)  
-  echo ${timestamp}
- def tag=$app:$timestamp
-  echo ${tag}
+//     def timestamp = $(date +%YY%m%d%H%M%S)  
+//   echo ${timestamp}
+//  def tag=$app:$timestamp
+//   echo ${tag}
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -64,14 +64,10 @@ node {
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
-//               def tag=$test:$timestamps
-//                 test.tag('BUILD_TIMESTAMP')
-//                         test.tag(date)
-//                     def time = $(datetime.timestamp)  
   
-//                       def tag=$test + $time
-              echo  '${env}'
-//                    tag.push('latest').tag
+
+           DOCKER_TAG: $(date +%Y%m%d) 
+                   test.push('${DOCKER_TAG}')
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
