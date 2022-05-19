@@ -66,7 +66,7 @@ node {
                  docker.withRegistry('', 'docker1') {
   
 
-           DOCKER_TAG: $(date +%Y%m%d) 
+           DOCKER_TAG: $(date) 
                    test.push('${DOCKER_TAG}')
         }
 
