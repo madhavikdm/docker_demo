@@ -1,10 +1,10 @@
 node {      
   
      def app 
-//    def timestamp = $(date + %Y%m%d%H%M%S)  
+    def timestamp = $(date + %Y%m%d%H%M%S)  
   
-// def tag=$app:$timestamp
-
+ def tag=$app:$timestamp
+  echo ${tag}
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
