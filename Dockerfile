@@ -14,4 +14,4 @@ EXPOSE 3000
 
 
 CMD [ "npm", "start" ]
-RUN date >/build-date.txt
+ 
