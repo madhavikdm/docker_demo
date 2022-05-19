@@ -71,7 +71,7 @@ node {
   
 //                       def tag=$test + $time
                      test.push('${BUILD_DATE_FORMATTED, "dd"}')
-//                    tag.push('')
+//                    tag.push('latest').tag
         }
 
          echo '### Docker image pushed on docker hub  successfully.'  
