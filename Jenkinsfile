@@ -65,7 +65,7 @@ node {
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
   
-                   test.push("${env.BUILD_NUMBER}:{"latest"}")
+                   test.push("${env.BUILD_NUMBER}:{latest}")
 //             test.push("latest")
                  }
 
