@@ -65,10 +65,9 @@ node {
          test = docker.build registry
                  docker.withRegistry('', 'docker1') {
   
-
-           DOCKER_TAG: $(date) 
-                   test.push('${DOCKER_TAG}')
-        }
+      test.push("${env.BUILD_NUMBER}")
+            test.push("latest")
+                 }
 
          echo '### Docker image pushed on docker hub  successfully.'  
 
