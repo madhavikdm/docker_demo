@@ -5,7 +5,7 @@ const HOST = '0.0.0.0'
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello World! tagging with latest')
 })
 
 app.listen(port,() => {
