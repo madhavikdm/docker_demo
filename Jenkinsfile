@@ -40,31 +40,31 @@ node {
 
      }
 
-      stage('Push image to aws ecr') {
+//       stage('Push image to aws ecr') {
 
-       echo '### Started pushing the docker image..'
+//        echo '### Started pushing the docker image..'
 
-        /* You would need to first create aws ecr before you can push images to your account */
+//         /* You would need to first create aws ecr before you can push images to your account */
          
-          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
+//           docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
-//                test=docker.build('jenkinspipeline')
-//                   app.push ('latest_2') 
-            app.push("${env.BUILD_NUMBER}")
-           echo '### Docker image pushed on aws ecr successfully.'  
+// //                test=docker.build('jenkinspipeline')
+// //                   app.push ('latest_2') 
+//             app.push("${env.BUILD_NUMBER}")
+//            echo '### Docker image pushed on aws ecr successfully.'  
 
-           }  
-     }
+//            }  
+//      }
      
    stage('push image on docker hub') {
          
-       def registry ="agoraservices/jump-api"
-//         def registry ="madhavikadam/jump-api"
+//        def registry ="agoraservices/jump-api"
+         def registry ="madhavikadam/demo1"
         def test=''
       echo '### Started pushing the docker image..'
       /* You would need to first register with DockerHub before you can push images to your account */
          test = docker.build registry
-                 docker.withRegistry('', 'docker1') {
+                 docker.withRegistry('', 'docker') {
   
                     test.push("${env.BUILD_NUMBER}")
 //              test.push("latest")
