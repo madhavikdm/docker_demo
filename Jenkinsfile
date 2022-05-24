@@ -30,15 +30,15 @@ node {
 
      }
      
-    stage('Test image') {        
+//     stage('Test image') {        
 
-        app.inside {
+//         app.inside {
 
-            echo "Tests passed"    
+//             echo "Tests passed"    
 
-         }
+//          }
 
-     }
+//      }
 
 //       stage('Push image to aws ecr') {
 
