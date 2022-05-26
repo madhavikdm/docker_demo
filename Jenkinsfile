@@ -54,7 +54,7 @@ app = docker.build('docker_demo')
 
 
 
-                app.push ('docker_demo')
+                app.push ('')
 
          echo '### Docker image pushed on aws ecr successfully.'
 
