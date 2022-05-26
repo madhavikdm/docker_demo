@@ -1,10 +1,11 @@
-node {      
-  
-     def app 
-//     def timestamp = $(date +%YY%m%d%H%M%S)  
-//   echo ${timestamp}
-//  def tag=$app:$timestamp
-//   echo ${tag}
+node {
+
+    def app
+
+//     def dockerFilePath = './MICROSERVICE'
+
+
+
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -16,62 +17,79 @@ node {
         echo '### Repository cloned successfully'
 
     }
+
     stage('Build image') {
 
         /* This builds the actual image */
 
         echo '### Started Building the docker image..'
-     
-        app = docker.build ('jump-api')
-//    app.image('mydemo_1').withRun('-p 5000:3000')
 
-
+//         app = docker.build('account-transaction', dockerFilePath)
+app = docker.build('docker_demo')
         echo '### Docker build successful.'
 
+    }
+
+
+
+    stage('Test image') {
+
+        app.inside {
+
+            echo 'Tests passed'
+
+        }
+
+    }
+
+
+
+         stage('Push image to aws ecr') {
+
+          echo '### Started pushing the docker image..'
+
+        /* You would need to first create aws ecr before you can push images to your account */
+
+          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
+
+
+
+                app.push ('docker_demo')
+
+         echo '### Docker image pushed on aws ecr successfully.'
+
+
+
+          }
+
      }
-     
-//     stage('Test image') {        
 
-//         app.inside {
 
-//             echo "Tests passed"    
 
-//          }
+//     stage('push image on docker hub') {
 
-//      }
+//         def registry = 'agoraservices/account-transaction'
 
-//       stage('Push image to aws ecr') {
+//         def test = ''
 
-//        echo '### Started pushing the docker image..'
+//         echo '### Started pushing the docker image..'
 
-//         /* You would need to first create aws ecr before you can push images to your account */
-         
-//           docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
+//       /* You would need to first register with DockerHub before you can push images to your account */
 
-// //                test=docker.build('jenkinspipeline')
-// //                   app.push ('latest_2') 
-//             app.push("${env.BUILD_NUMBER}")
-//            echo '### Docker image pushed on aws ecr successfully.'  
+//         test = docker.build registry, dockerFilePath
 
-//            }  
-//      }
-     
-   stage('push image on docker hub') {
-         
-//        def registry ="agoraservices/jump-api"
-         def registry ="madhavikadam/demo1"
-        def test=''
-      echo '### Started pushing the docker image..'
-      /* You would need to first register with DockerHub before you can push images to your account */
-         test = docker.build registry
-                 docker.withRegistry('', 'Docker') {
-  
-                    test.push("${env.BUILD_NUMBER}")
-//              test.push("latest")
-                 }
+//         docker.withRegistry('', 'docker') {
 
-         echo '### Docker image pushed on docker hub  successfully.'  
+//                 test.push("${env.BUILD_NUMBER}")
 
-      }
-       
+//         //     test.push('latest')
+
+//         }
+
+
+
+//         echo '### Docker image pushed on docker hub  successfully.'
+
+//     }
+
 }
