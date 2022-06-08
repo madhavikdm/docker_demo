@@ -75,11 +75,11 @@ app = docker.build('docker_demo')
 
         /* You would need to first register with DockerHub before you can push images to your account */
 
-          test = docker.build registry, dockerFilePath
+//           test = docker.build registry, dockerFilePath
 
         docker.withRegistry('', 'docker') {
 
-                  test.push("${env.BUILD_ID}")
+                  app.push("${env.BUILD_ID}")
 
 //    test.push('latest')
 
