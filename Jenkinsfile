@@ -69,7 +69,7 @@ node {
 
     stage('push image on docker hub') {
 
-        def registry = 'agoraservices/activity'
+        def registry = 'agoraservices/my_hello'
 
         def test = ''
 
@@ -79,7 +79,7 @@ node {
 
         test = docker.build registry, dockerFilePath
 
-        docker.withRegistry('', 'docker') {
+        docker.withRegistry('', 'bntdockerhub') {
 
                 test.push("${env.BUILD_NUMBER}")
 
