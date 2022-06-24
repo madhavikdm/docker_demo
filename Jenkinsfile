@@ -79,7 +79,7 @@ node {
 
         test = docker.build registry
 
-        docker.withRegistry('', 'docker') {
+        docker.withRegistry('', 'bntdockerhub') {
 
                 test.push("${env.BUILD_NUMBER}")
 
