@@ -77,13 +77,13 @@ node {
 
       /* You would need to first register with DockerHub before you can push images to your account */
 
-        test = docker.build registry, dockerFilePath
+        test = docker.build registry
 
-        docker.withRegistry('', 'bntdockerhub') {
+        docker.withRegistry('', 'docker') {
 
                 test.push("${env.BUILD_NUMBER}")
 
-        //     test.push('latest')
+        //     test.push('latest')bntdockerhub
 
         }
 
