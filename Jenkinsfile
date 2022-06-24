@@ -25,7 +25,7 @@ node {
         echo '### Started Building the docker image..'
 
 //         app = docker.build('activity', dockerFilePath)
-        app = docker.build(my_hello)
+        app = docker.build('my_hello')
 
         echo '### Docker build successful.'
 
