@@ -55,7 +55,7 @@ node {
 
 
 
-                app.push ('my_hello')
+                app.push ('latest')
 
          echo '### Docker image pushed on aws ecr successfully.'
 
