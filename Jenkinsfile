@@ -1,11 +1,6 @@
 node {
 
     def app
-
-//     def dockerFilePath = './MICROSERVICE'
-
-
-
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -67,29 +62,29 @@ node {
 
 
 
-    stage('push image on docker hub') {
+//     stage('push image on docker hub') {
 
-        def registry = 'agoraservices/my_hello'
+//         def registry = 'agoraservices/my_hello'
 
-        def test = ''
+//         def test = ''
 
-        echo '### Started pushing the docker image..'
+//         echo '### Started pushing the docker image..'
 
-      /* You would need to first register with DockerHub before you can push images to your account */
+//       /* You would need to first register with DockerHub before you can push images to your account */
 
-        test = docker.build registry
+//         test = docker.build registry
 
-        docker.withRegistry('', 'bntdockerhub') {
+//         docker.withRegistry('', 'bntdockerhub') {
 
-                test.push("${env.BUILD_NUMBER}")
+//                 test.push("${env.BUILD_NUMBER}")
 
-        //     test.push('latest')bntdockerhub
+//         //     test.push('latest')bntdockerhub
 
-        }
+//         }
 
 
 
-        echo '### Docker image pushed on docker hub  successfully.'
+//         echo '### Docker image pushed on docker hub  successfully.'
 
     }
 
