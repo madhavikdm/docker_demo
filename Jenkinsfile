@@ -86,6 +86,6 @@ node {
 
 //         echo '### Docker image pushed on docker hub  successfully.'
 
-    }
+//     }
 
 }
