@@ -25,9 +25,6 @@ node {
         echo '### Docker build successful.'
 
     }
-
-
-
     stage('Test image') {
 
         app.inside {
@@ -37,8 +34,6 @@ node {
         }
 
     }
-
-
 
         stage('Push image to aws ecr') {
 
