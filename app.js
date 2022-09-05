@@ -5,7 +5,7 @@ const HOST = '0.0.0.0'
 
 
 app.get('/', (req, res) => {
-    res.send('hello.now we updated service from jenkins build')
+    res.send('hello.now updated service from jenkins build')
 })
 
 app.listen(port,() => {
