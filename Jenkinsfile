@@ -1,58 +1,58 @@
-node {
+// node {
 
-    def app
-    stage('Clone repository') {
+//     def app
+// //     stage('Clone repository') {
 
-        /* Cloning the Repository to our Workspace */
+// //         /* Cloning the Repository to our Workspace */
 
-        echo '### Started cloning the repository..'
+// //         echo '### Started cloning the repository..'
 
-        checkout scm
+// //         checkout scm
 
-        echo '### Repository cloned successfully'
+// //         echo '### Repository cloned successfully'
 
-    }
+// //     }
 
-    stage('Build image') {
+// //     stage('Build image') {
 
-        /* This builds the actual image */
+// //         /* This builds the actual image */
 
-        echo '### Started Building the docker image..'
+// //         echo '### Started Building the docker image..'
 
-//         app = docker.build('activity', dockerFilePath)
-        app = docker.build('my_hello')
+// // //         app = docker.build('activity', dockerFilePath)
+// //         app = docker.build('my_hello')
 
-        echo '### Docker build successful.'
+// //         echo '### Docker build successful.'
 
-    }
-    stage('Test image') {
+// //     }
+// //     stage('Test image') {
 
-        app.inside {
+// //         app.inside {
 
-            echo 'Tests passed'
+// //             echo 'Tests passed'
 
-        }
+// //         }
 
-    }
+// //     }
 
-        stage('Push image to aws ecr') {
+//         stage('Push image to aws ecr') {
 
-          echo '### Started pushing the docker image..'
+//           echo '### Started pushing the docker image..'
 
-        /* You would need to first create aws ecr before you can push images to your account */
+//         /* You would need to first create aws ecr before you can push images to your account */
 
-         docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
-
-
-
-                app.push ('latest')
-
-         echo '### Docker image pushed on aws ecr successfully.'
+//          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
 
 
 
-         }
+//                 app.push ('latest')
 
-    }
+//          echo '### Docker image pushed on aws ecr successfully.'
 
-}
+
+
+//          }
+
+//     }
+
+// }
